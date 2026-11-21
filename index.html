@@ -1,81 +1,394 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Digital freelancer portfolio — web development, video editing, graphic design and virtual assistance.">
-<title>HURAIRA — Digital Freelancer</title>
+<title>ABU HURAIRA | Creative Digital Freelancer</title>
+<meta name="description" content="ABU HURAIRA — Creative Digital Freelancer offering web development, video editing, graphic design and virtual assistant services.">
 <style>
-:root{--bg:#0b1020;--panel:#121a2d;--panel2:#172238;--text:#f4f7ff;--muted:#a8b3c9;--line:rgba(255,255,255,.1);--a:#8b7cff;--b:#42d6c5;--max:1120px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 5%,rgba(88,75,190,.22),transparent 28%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
-a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-.logo{font-weight:850;letter-spacing:.04em;font-size:19px}.logo span{color:var(--b)}.navlinks{display:flex;gap:27px;color:var(--muted);font-size:14px}.navlinks a:hover{color:white}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:10px;background:linear-gradient(110deg,var(--a),#6557e8);font-weight:750;font-size:14px;box-shadow:0 10px 30px rgba(105,88,230,.2)}
-.btn.secondary{background:transparent;border:1px solid var(--line);box-shadow:none}
-.hero{padding:92px 0 76px;display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}
-.eyebrow{color:var(--b);font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:12px}
-h1{font-size:clamp(42px,6vw,70px);line-height:1.04;letter-spacing:-.055em;margin:18px 0 22px}
-h1 em{font-style:normal;background:linear-gradient(90deg,var(--a),var(--b));background-clip:text;color:transparent}
-.lead{color:var(--muted);font-size:18px;max-width:600px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.note{font-size:12px;color:#8290aa;margin-top:17px}
-.visual{background:linear-gradient(145deg,rgba(139,124,255,.2),rgba(66,214,197,.08));border:1px solid var(--line);border-radius:24px;padding:22px;min-height:360px;position:relative;overflow:hidden}
-.visual:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(139,124,255,.2);filter:blur(30px);right:-50px;top:-50px}
-.mock{position:relative;background:#0d1528;border:1px solid rgba(255,255,255,.13);border-radius:15px;padding:18px;margin:12px 0;box-shadow:0 20px 50px rgba(0,0,0,.2)}
-.dots{display:flex;gap:6px;margin-bottom:20px}.dots i{width:7px;height:7px;border-radius:50%;background:#59647c}
-.mockline{height:9px;border-radius:9px;background:#293650;margin:11px 0}.mockline.short{width:55%}.mockline.mid{width:78%}
-.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}.tile{padding:16px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);font-size:13px;font-weight:700}.tile span{display:block;color:var(--b);font-size:11px;margin-bottom:5px}
-section{padding:68px 0;border-top:1px solid var(--line)}.section-head{max-width:680px;margin-bottom:30px}h2{font-size:clamp(30px,4vw,43px);letter-spacing:-.04em;line-height:1.12;margin:9px 0 12px}.sub{color:var(--muted);margin:0}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:linear-gradient(150deg,var(--panel),rgba(18,26,45,.55));border:1px solid var(--line);border-radius:16px;padding:22px}.icon{width:42px;height:42px;border-radius:12px;background:rgba(139,124,255,.15);display:grid;place-items:center;font-size:20px;margin-bottom:18px}.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}.tag{font-size:11px;color:#c6cde0;border:1px solid var(--line);padding:4px 8px;border-radius:20px}
-.workgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.project{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}.cover{height:155px;padding:18px;display:flex;align-items:end;background:linear-gradient(135deg,#29245b,#116b6b)}.cover.two{background:linear-gradient(135deg,#542d62,#b05b63)}.cover.three{background:linear-gradient(135deg,#1e365d,#5b78a7)}.cover.four{background:linear-gradient(135deg,#2c4052,#1d806e)}.cover.five{background:linear-gradient(135deg,#62452d,#b78b4d)}.cover.six{background:linear-gradient(135deg,#3a315e,#7956a8)}.cover strong{font-size:22px;line-height:1.1;max-width:240px}.projectbody{padding:18px}.projectbody h3{margin:0 0 7px;font-size:17px}.projectbody p{margin:0;color:var(--muted);font-size:13px}.label{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--b);font-weight:800;margin-bottom:7px}
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{border-top:2px solid var(--a);padding:17px 4px}.num{font-size:12px;color:var(--b);font-weight:800}.step h3{font-size:16px;margin:8px 0 5px}.step p{font-size:13px;color:var(--muted);margin:0}
-.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:start}.aboutbox{padding:25px;background:var(--panel);border:1px solid var(--line);border-radius:17px}.aboutbox p{color:var(--muted);margin:0}.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.checks span{font-size:13px;color:#d8deed}.checks span:before{content:"✓";color:var(--b);font-weight:900;margin-right:8px}
-.contact{background:linear-gradient(120deg,rgba(139,124,255,.16),rgba(66,214,197,.09));border:1px solid var(--line);border-radius:22px;padding:38px;display:flex;align-items:center;justify-content:space-between;gap:25px}.contact p{color:var(--muted);margin:8px 0 0}
-footer{padding:28px 0;color:#8390a8;font-size:12px;display:flex;justify-content:space-between;gap:15px}
-@media(max-width:850px){.hero{grid-template-columns:1fr;padding:65px 0}.visual{min-height:300px}.grid{grid-template-columns:repeat(2,1fr)}.workgrid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.process{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.wrap{width:min(100% - 28px,var(--max))}.navlinks{display:none}.hero{padding:52px 0}.grid,.workgrid{grid-template-columns:1fr}.contact{padding:25px;display:block}.contact .btn{margin-top:20px}.checks{grid-template-columns:1fr}footer{display:block}footer span{display:block;margin:5px 0}}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #080811;
+  --card: #11111f;
+  --purple: #9b5cff;
+  --cyan: #00e5ff;
+  --text: #f5f4ff;
+  --muted: #a3a1b8;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+}
+
+a { color:inherit; text-decoration:none; }
+
+.container { width:min(1100px,90%); margin:auto; }
+
+header {
+  position:sticky; top:0; z-index:10;
+  background:rgba(8,8,17,.88);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #ffffff12;
+}
+
+nav {
+  min-height:75px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:20px;
+}
+
+.logo { font-size:21px; font-weight:900; letter-spacing:1px; }
+.logo span { color:var(--cyan); }
+
+.nav-links { display:flex; gap:25px; color:var(--muted); font-size:13px; }
+.nav-links a:hover { color:var(--cyan); }
+
+.hero {
+  min-height:650px;
+  display:flex; align-items:center;
+  padding:90px 0;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:before {
+  content:"";
+  position:absolute;
+  width:400px; height:400px;
+  background:var(--purple);
+  filter:blur(170px);
+  opacity:.18;
+  right:5%; top:10%;
+}
+
+.tag {
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid #9b5cff55;
+  border-radius:30px;
+  color:var(--cyan);
+  font-size:12px;
+  margin-bottom:25px;
+}
+
+.hero h1 {
+  font-size:clamp(42px,7vw,76px);
+  line-height:1.08;
+  letter-spacing:-3px;
+  max-width:850px;
+}
+
+.gradient {
+  background:linear-gradient(90deg,var(--purple),var(--cyan));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p {
+  color:var(--muted);
+  max-width:570px;
+  margin:25px 0 32px;
+  font-size:16px;
+}
+
+.buttons { display:flex; gap:14px; flex-wrap:wrap; }
+
+.btn {
+  display:inline-block;
+  padding:13px 23px;
+  border-radius:9px;
+  font-weight:700;
+  font-size:13px;
+  transition:.25s;
+}
+
+.primary {
+  background:linear-gradient(90deg,var(--purple),#6741d9);
+  color:white;
+}
+
+.secondary {
+  border:1px solid #ffffff35;
+  color:var(--text);
+}
+
+.btn:hover { transform:translateY(-3px); box-shadow:0 8px 30px #9b5cff30; }
+
+section { padding:85px 0; }
+
+.section-label {
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.section-title {
+  font-size:clamp(30px,5vw,43px);
+  margin:12px 0;
+  letter-spacing:-1.5px;
+}
+
+.section-desc { color:var(--muted); max-width:600px; margin-bottom:35px; }
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:35px;
+  align-items:center;
+}
+
+.about-text { color:var(--muted); font-size:15px; }
+
+.about-card {
+  background:linear-gradient(145deg,#171329,#10101c);
+  border:1px solid #ffffff15;
+  padding:30px;
+  border-radius:18px;
+}
+
+.about-card h3 { margin-bottom:15px; }
+.detail { color:var(--muted); font-size:14px; margin:10px 0; }
+.detail strong { color:white; }
+
+.services-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.service-card {
+  background:var(--card);
+  border:1px solid #ffffff12;
+  border-radius:16px;
+  padding:28px;
+  transition:.3s;
+}
+
+.service-card:hover {
+  border-color:var(--purple);
+  transform:translateY(-5px);
+}
+
+.service-number { color:var(--cyan); font-size:13px; font-weight:700; }
+.service-card h3 { margin:12px 0 8px; font-size:20px; }
+.service-card p { color:var(--muted); font-size:14px; }
+
+.skills {
+  display:flex; flex-wrap:wrap; gap:12px;
+}
+
+.skill {
+  border:1px solid #ffffff20;
+  background:#11111f;
+  padding:11px 17px;
+  border-radius:8px;
+  color:#d9d6ed;
+  font-size:13px;
+}
+
+.contact-box {
+  background:linear-gradient(130deg,#21133d,#101c2b);
+  border:1px solid #ffffff20;
+  border-radius:20px;
+  padding:50px 30px;
+  text-align:center;
+}
+
+.contact-box p {
+  color:var(--muted);
+  max-width:550px;
+  margin:12px auto 25px;
+}
+
+.email {
+  color:var(--cyan);
+  display:block;
+  margin:18px 0;
+  font-weight:600;
+  word-break:break-word;
+}
+
+footer {
+  border-top:1px solid #ffffff12;
+  padding:25px 0;
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+}
+
+@media(max-width:700px) {
+  .nav-links { gap:12px; font-size:11px; }
+  .logo { font-size:17px; }
+  .about-grid,.services-grid { grid-template-columns:1fr; }
+  .hero { min-height:570px; }
+  section { padding:65px 0; }
+  .hero h1 { letter-spacing:-2px; }
+}
 </style>
 </head>
-  <a href="mailto:hurairasiddique.hs@gmail.com">
-  Contact Me — Email
-</a>
+
 <body>
-<div class="wrap">
-<nav><a class="logo" href="#">YOUR<span>NAME</span>.</a><div class="navlinks"><a href="#services">Services</a><a href="#work">Portfolio</a><a href="#process">Process</a><a href="#about">About</a></div><a class="btn" href="#contact">Let's work together</a></nav>
+
+<header>
+  <nav class="container">
+    <a class="logo" href="#">HURAIRA<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
 <main>
-<div class="hero">
-<div><div class="eyebrow">Independent Digital Freelancer</div><h1>HURAIRA.<br><em>creative digital freelancer.</em></h1><p class="lead">I help creators, small businesses and growing brands build a stronger online presence through clean websites, engaging video edits, thoughtful design and dependable virtual support.</p><div class="actions"><a class="btn" href="#work">Explore my work</a><a class="btn secondary" href="#contact">Contact me</a></div><div class="note">Remote freelance services · Available for project-based work</div></div>
-<div class="visual"><div class="mock"><div class="dots"><i></i><i></i><i></i></div><div class="eyebrow">Creative + Digital</div><div style="font-size:25px;font-weight:850;line-height:1.15;margin:10px 0">Ideas into<br><span style="color:var(--b)">finished work.</span></div><div class="mockline"></div><div class="mockline mid"></div><div class="mockline short"></div><div class="tiles"><div class="tile"><span>01 / BUILD</span>Websites</div><div class="tile"><span>02 / EDIT</span>Video content</div><div class="tile"><span>03 / DESIGN</span>Visual identity</div><div class="tile"><span>04 / SUPPORT</span>Virtual assistance</div></div></div></div>
-</div>
-<section id="services"><div class="section-head"><div class="eyebrow">What I can do</div><h2>Practical digital services, in one place.</h2><p class="sub">Choose a focused service or combine services for a complete project. Scope and delivery time are agreed before work begins.</p></div>
-<div class="grid">
-<div class="card"><div class="icon">⌘</div><h3>Web Development</h3><p>Responsive, user-friendly websites and landing pages that present your business clearly across mobile and desktop.</p><div class="tags"><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span></div></div>
-<div class="card"><div class="icon">▶</div><h3>Video Editing</h3><p>Short-form videos and polished edits with clean cuts, captions, pacing, audio and platform-ready exports.</p><div class="tags"><span class="tag">Shorts/Reels</span><span class="tag">Captions</span><span class="tag">Editing</span></div></div>
-<div class="card"><div class="icon">✳</div><h3>Graphic Design</h3><p>Clear, consistent visuals for digital content, including thumbnails, social posts, banners and simple brand assets.</p><div class="tags"><span class="tag">Thumbnails</span><span class="tag">Social posts</span><span class="tag">Canva</span></div></div>
-<div class="card"><div class="icon">▤</div><h3>Virtual Assistance</h3><p>Organised remote support for routine digital tasks, research, document formatting, spreadsheets and content scheduling.</p><div class="tags"><span class="tag">Research</span><span class="tag">Spreadsheets</span><span class="tag">Admin</span></div></div>
-</div></section>
-<section id="work"><div class="section-head"><div class="eyebrow">Selected portfolio concepts</div><h2>Work samples that show the approach.</h2><p class="sub">These are self-initiated concept projects to demonstrate direction and capability. Replace each with your own completed work before presenting it as a finished client case study.</p></div>
-<div class="workgrid">
-<article class="project"><div class="cover"><strong>Modern business<br>landing page</strong></div><div class="projectbody"><div class="label">Web development · Concept</div><h3>Local business website</h3><p>A responsive landing-page concept with service sections, clear calls to action and mobile-first layout.</p></div></article>
-<article class="project"><div class="cover two"><strong>Make every<br>second count.</strong></div><div class="projectbody"><div class="label">Video editing · Concept</div><h3>Creator short-form edit</h3><p>A sample vertical-video treatment featuring a strong opening hook, subtitles and purposeful pacing.</p></div></article>
-<article class="project"><div class="cover three"><strong>Stand out<br>in the feed.</strong></div><div class="projectbody"><div class="label">Graphic design · Concept</div><h3>Gaming thumbnail set</h3><p>A visual direction for high-contrast thumbnails with readable type and a consistent content style.</p></div></article>
-<article class="project"><div class="cover four"><strong>Plan. Track.<br>Deliver.</strong></div><div class="projectbody"><div class="label">Virtual assistance · Concept</div><h3>Content planning system</h3><p>A sample content calendar with task status, publishing dates and a simple workflow.</p></div></article>
-<article class="project"><div class="cover five"><strong>A clearer<br>brand presence.</strong></div><div class="projectbody"><div class="label">Graphic design · Concept</div><h3>Social media kit</h3><p>A coordinated set of post and story layouts designed to keep a brand visually consistent.</p></div></article>
-<article class="project"><div class="cover six"><strong>Simple tools.<br>Smoother work.</strong></div><div class="projectbody"><div class="label">Web development · Concept</div><h3>Service enquiry page</h3><p>A clean enquiry-page concept focused on presenting information and guiding visitors to contact.</p></div></article>
-</div></section>
-<section id="process"><div class="section-head"><div class="eyebrow">How projects work</div><h2>A straightforward process.</h2><p class="sub">Clear communication from the first message to final delivery.</p></div><div class="process">
-<div class="step"><div class="num">STEP 01</div><h3>Understand</h3><p>We discuss your goal, audience, requirements, references and deadline.</p></div>
-<div class="step"><div class="num">STEP 02</div><h3>Agree</h3><p>You receive a clear scope, price, delivery date and revision agreement.</p></div>
-<div class="step"><div class="num">STEP 03</div><h3>Create</h3><p>I work on the agreed deliverables and share progress when appropriate.</p></div>
-<div class="step"><div class="num">STEP 04</div><h3>Deliver</h3><p>You review the work, request agreed revisions and receive final files.</p></div>
-</div></section>
-<section id="about"><div class="about"><div><div class="eyebrow">A little about me</div><h2>Reliable work.<br>Clear communication.</h2></div><div class="aboutbox"><p>I'm an independent digital freelancer building practical skills across web development, video editing, graphic design and virtual assistance. I focus on understanding the brief, keeping communication clear and delivering work that matches the agreed requirements. I'm open to suitable projects and opportunities to grow through real client work.</p><div class="checks"><span>Responsive communication</span><span>Attention to detail</span><span>Agreed deadlines</span><span>Clear project scope</span></div></div></div></section>
-<section id="contact"><div class="contact"><div><div class="eyebrow">Have a project in mind?</div><h2>Let's make it happen.</h2><p>Share what you need, your timeline and any references. I'll reply to discuss the next step.</p></div><a class="btn" href="mailto:YOUR_EMAIL@example.com">Email me ↗</a></div></section>
+
+<section class="hero">
+  <div class="container">
+    <span class="tag">AVAILABLE FOR FREELANCE PROJECTS</span>
+
+    <h1>
+      Creative Digital<br>
+      <span class="gradient">Freelancer.</span>
+    </h1>
+
+    <p>
+      Hi, I'm ABU HURAIRA — a creative digital freelancer
+      building modern digital experiences through web development,
+      video editing, graphic design and virtual assistance.
+    </p>
+
+    <div class="buttons">
+      <a href="#services" class="btn primary">Explore My Services ↗</a>
+      <a href="mailto:hurairasiddique.hs@gmail.com" class="btn secondary">Hire Me ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div>
+      <span class="section-label">ABOUT ME</span>
+      <h2 class="section-title">Turning ideas into <span class="gradient">digital experiences.</span></h2>
+      <p class="about-text">
+        I am ABU HURAIRA, a creative digital freelancer based in Lahore,
+        Pakistan. I focus on creating useful, modern and visually engaging
+        digital solutions. My goal is to understand each client's needs
+        and deliver work with attention to detail, communication and
+        consistency.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h3>Personal Details</h3>
+      <p class="detail"><strong>Name:</strong> ABU HURAIRA</p>
+      <p class="detail"><strong>Location:</strong> Lahore, Pakistan</p>
+      <p class="detail"><strong>Role:</strong> Creative Digital Freelancer</p>
+      <p class="detail"><strong>Email:</strong> hurairasiddique.hs@gmail.com</p>
+      <p class="detail"><strong>Work:</strong> Remote / Freelance</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <span class="section-label">WHAT I DO</span>
+    <h2 class="section-title">My <span class="gradient">Services.</span></h2>
+    <p class="section-desc">
+      Digital services designed to help individuals, creators and businesses
+      build a stronger online presence.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-number">01 / DEVELOPMENT</span>
+        <h3>Web Development</h3>
+        <p>Modern, responsive and user-friendly websites designed for different screens and devices.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-number">02 / CREATIVE</span>
+        <h3>Video Editing</h3>
+        <p>Engaging video content, short-form edits, social media videos and polished visual storytelling.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-number">03 / DESIGN</span>
+        <h3>Graphic Designing</h3>
+        <p>Clean and attractive visual designs for social media, branding and digital content.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-number">04 / SUPPORT</span>
+        <h3>Virtual Assistant</h3>
+        <p>Organized virtual support, online research, data entry and administrative assistance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <span class="section-label">MY EXPERTISE</span>
+    <h2 class="section-title">Skills & <span class="gradient">Focus Areas.</span></h2>
+    <p class="section-desc">
+      The digital areas I am focused on developing and delivering services in.
+    </p>
+
+    <div class="skills">
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">Responsive Design</span>
+      <span class="skill">Video Editing</span>
+      <span class="skill">Graphic Design</span>
+      <span class="skill">Social Media Content</span>
+      <span class="skill">Data Entry</span>
+      <span class="skill">Online Research</span>
+      <span class="skill">Virtual Assistance</span>
+      <span class="skill">Communication</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <span class="section-label">LET'S WORK TOGETHER</span>
+      <h2 class="section-title">Have a project in <span class="gradient">mind?</span></h2>
+      <p>
+        Have an idea, need digital support or want to discuss a project?
+        Feel free to contact me. Let's make it happen.
+      </p>
+
+      <a class="email" href="mailto:hurairasiddique.hs@gmail.com">
+        hurairasiddique.hs@gmail.com
+      </a>
+
+      <a class="btn primary"
+         href="mailto:hurairasiddique.hs@gmail.com?subject=Freelance%20Project%20Inquiry">
+        Send Me an Email ↗
+      </a>
+    </div>
+  </div>
+</section>
+
 </main>
-<footer><span>© 2026 YOUR NAME. All rights reserved.</span><span>Independent Digital Freelancer · Pakistan / Remote</span></footer>
-</diva
-  <a href="mailto:hurairasiddique.hs@gmail.com">
-  Contact Me — Email
-</a>
+
+<footer>
+  <div class="container">
+    © 2026 ABU HURAIRA. All rights reserved.
+    <br>Creative Digital Freelancer | Lahore, Pakistan
+  </div>
+</footer>
+
 </body>
 </html>
