@@ -5,733 +5,536 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Huraira's Portfolio</title>
-<meta name="description" content="Huraira — Creative Digital Freelancer specializing in web development, video editing, graphic design and virtual assistance.">
-
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Huraira — Creative Digital Freelancer. Web development, video editing, graphic design and virtual assistance.">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 :root{
- --bg:#100f16;
- --white:#f8f6ff;
+ --bg:#090710;
+ --panel:#141020;
  --purple:#a78bfa;
- --orange:#ff805d;
- --lime:#c5f467;
- --cyan:#69e5e0;
- --muted:#aaa6b7;
+ --cyan:#54e6df;
+ --pink:#ff72bd;
+ --orange:#ffad66;
+ --lime:#d5ff76;
+ --white:#f8f6ff;
+ --muted:#aaa3bb;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- background:var(--bg);
- color:var(--white);
- font-family:'Space Grotesk',sans-serif;
- overflow-x:hidden;
+ background:var(--bg);color:var(--white);
+ font-family:'DM Sans',sans-serif;overflow-x:hidden;
 }
-a{text-decoration:none;color:inherit}
-::selection{background:var(--lime);color:#111}
-
-/* BACKGROUND */
-.background{
- position:fixed;inset:0;
- z-index:-2;overflow:hidden;
- pointer-events:none;
- background:
- radial-gradient(circle at 50% 50%,#21182d 0%,#100f16 65%);
-}
-.grid-bg{
- position:absolute;inset:-50%;
- width:200%;height:200%;
- background-image:
- linear-gradient(#ffffff08 1px,transparent 1px),
- linear-gradient(90deg,#ffffff08 1px,transparent 1px);
- background-size:55px 55px;
- transform:perspective(600px) rotateX(15deg);
- animation:gridmove 35s linear infinite;
- mask-image:linear-gradient(to bottom,transparent,#000 20%,#000 80%,transparent);
-}
-@keyframes gridmove{
- from{transform:perspective(600px) rotateX(15deg) translateY(0)}
- to{transform:perspective(600px) rotateX(15deg) translateY(55px)}
-}
-.orb{
- position:absolute;border-radius:50%;
- filter:blur(85px);opacity:.19;
- animation:float 12s ease-in-out infinite alternate;
-}
-.orb.one{
- width:350px;height:350px;background:#9255ff;
- top:5%;left:-120px;
-}
-.orb.two{
- width:300px;height:300px;background:#ff7043;
- top:40%;right:-120px;
- animation-delay:-4s;
-}
-.orb.three{
- width:280px;height:280px;background:#43d9cf;
- bottom:-100px;left:30%;
- animation-delay:-7s;
-}
-@keyframes float{
- from{transform:translate(0,0) scale(1)}
- to{transform:translate(75px,-65px) scale(1.2)}
-}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
 #particles{
- position:fixed;inset:0;
- width:100%;height:100%;
- pointer-events:none;z-index:-1;
+ position:fixed;inset:0;width:100%;height:100%;
+ pointer-events:none;z-index:0;
 }
+.background-grid{
+ position:fixed;inset:0;pointer-events:none;z-index:0;
+ opacity:.18;
+ background-image:linear-gradient(#a78bfa18 1px,transparent 1px),
+ linear-gradient(90deg,#a78bfa18 1px,transparent 1px);
+ background-size:55px 55px;
+ mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+.ambient{
+ position:fixed;width:430px;height:430px;border-radius:50%;
+ filter:blur(110px);opacity:.15;pointer-events:none;z-index:0;
+ animation:ambient 12s ease-in-out infinite alternate;
+}
+.ambient.one{background:#8b5cf6;top:5%;left:-180px}
+.ambient.two{background:#00d9d0;right:-200px;top:45%;animation-delay:3s}
+.ambient.three{background:#ff4fa9;left:30%;bottom:-350px;animation-delay:5s}
+@keyframes ambient{to{transform:translate(100px,-60px) scale(1.25)}}
 
-/* NAVIGATION */
+.mouse-glow{
+ position:fixed;width:260px;height:260px;border-radius:50%;
+ background:radial-gradient(circle,#a78bfa20,transparent 70%);
+ pointer-events:none;transform:translate(-50%,-50%);z-index:0;
+}
+main,nav,footer,.marquee{position:relative;z-index:1}
 nav{
- position:fixed;top:0;width:100%;z-index:100;
- padding:17px 8%;
- display:flex;justify-content:space-between;
- align-items:center;
- background:#100f16c9;
- backdrop-filter:blur(20px);
- border-bottom:1px solid #ffffff12;
+ height:85px;display:flex;align-items:center;justify-content:space-between;
+ padding:0 8%;border-bottom:1px solid #ffffff12;
+ backdrop-filter:blur(15px);
 }
-.logo{
- font-family:Syne;font-size:21px;font-weight:800;
+.logo{font-family:'Space Grotesk';font-weight:800;font-size:24px;letter-spacing:-1px}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:32px;font-size:13px;color:var(--muted)}
+.nav-links a:hover{color:var(--cyan)}
+.nav-cta{
+ border:1px solid #a78bfa80;padding:11px 19px;border-radius:30px;
+ font-size:12px;transition:.3s;
 }
-.logo span{color:var(--lime)}
-.navlinks{display:flex;gap:27px;align-items:center}
-.navlinks a{font-size:12px;color:#c5c0d1;transition:.3s}
-.navlinks a:hover{color:var(--lime)}
-.nav-btn{
- background:var(--lime);color:#111!important;
- padding:11px 19px;border-radius:30px;
- font-weight:700;
- transition:.3s;
-}
-.nav-btn:hover{transform:translateY(-3px);box-shadow:0 0 25px #c5f46755}
+.nav-cta:hover{background:var(--purple);color:#100b1c}
 
-/* HERO */
 .hero{
- min-height:95vh;padding:145px 10% 85px;
- display:flex;flex-direction:column;
- justify-content:center;position:relative;
+ min-height:690px;padding:115px 10% 100px;
+ position:relative;display:flex;align-items:center;
 }
+.hero-content{max-width:850px;position:relative;z-index:2}
 .eyebrow{
- color:var(--lime);font-size:11px;
- letter-spacing:3px;font-weight:700;
- margin-bottom:24px;
- animation:fadeup .9s both;
+ color:var(--cyan);font-size:11px;letter-spacing:4px;
+ text-transform:uppercase;margin-bottom:30px;
 }
 .hero h1{
- font-family:Syne;
- font-size:clamp(52px,8vw,100px);
- line-height:.98;letter-spacing:-5px;
- font-weight:800;
- animation:fadeup 1s .1s both;
+ font-family:'Space Grotesk';font-size:clamp(65px,11vw,145px);
+ line-height:.86;letter-spacing:-9px;font-weight:700;
 }
-.outline{
- color:transparent;
- -webkit-text-stroke:1.4px var(--white);
+.hero h1 .gradient{
+ background:linear-gradient(100deg,var(--purple),var(--pink),var(--orange));
+ -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-.colour{
- background:linear-gradient(90deg,#ff805d,#c28cff,#69e5e0);
- -webkit-background-clip:text;
- background-clip:text;color:transparent;
- background-size:200% auto;
- animation:gradient 5s linear infinite;
+.hero h1 .outline{
+ color:transparent;-webkit-text-stroke:1.5px #f8f6ff;
 }
-@keyframes gradient{to{background-position:200% center}}
-.hero-bottom{
- display:flex;justify-content:space-between;
- align-items:center;gap:30px;
- margin-top:35px;
- animation:fadeup 1s .3s both;
+.hero-description{
+ color:var(--muted);font-size:16px;line-height:1.9;
+ max-width:480px;margin-top:35px;
 }
-.hero-desc{
- max-width:390px;color:var(--muted);
- font-size:14px;line-height:1.9;
+.hero-buttons{display:flex;gap:15px;margin-top:35px;flex-wrap:wrap}
+.btn{
+ padding:15px 24px;border-radius:30px;font-size:13px;font-weight:700;
+ transition:.3s;display:inline-flex;align-items:center;gap:10px;
 }
-.hero-desc strong{color:white}
-.hero-cta{
- display:inline-block;background:var(--lime);
- color:#111;padding:15px 24px;
- border-radius:40px;font-size:13px;
- font-weight:700;transition:.3s;
+.btn-primary{background:var(--purple);color:#120d1d}
+.btn-primary:hover{background:var(--cyan);transform:translateY(-4px)}
+.btn-outline{border:1px solid #ffffff45}
+.btn-outline:hover{border-color:var(--pink);color:var(--pink)}
+.hero-note{
+ margin-top:35px;color:#777087;font-size:11px;letter-spacing:2px;
 }
-.hero-cta:hover{
- transform:translateY(-5px);
- box-shadow:0 10px 30px #c5f46740;
-}
-.hero-label{
- position:absolute;right:9%;top:25%;
- border:1px solid #ffffff25;
- padding:12px 17px;border-radius:30px;
- font-size:10px;letter-spacing:2px;
- color:var(--cyan);
- animation:pulse 3s infinite;
-}
-@keyframes pulse{
- 50%{box-shadow:0 0 25px #69e5e033}
-}
-@keyframes fadeup{
- from{opacity:0;transform:translateY(30px)}
- to{opacity:1;transform:translateY(0)}
-}
+.hero-note span{color:var(--lime)}
 
-/* MARQUEE */
-.marquee{
- background:var(--lime);color:#111;
- overflow:hidden;padding:14px 0;
- transform:rotate(-1deg) scale(1.02);
+.hero-art{
+ position:absolute;right:9%;top:22%;width:310px;height:310px;
+ border:1px solid #a78bfa35;border-radius:50%;
+ animation:rotate 24s linear infinite;
 }
-.marquee-inner{
- display:flex;white-space:nowrap;
- width:max-content;
- animation:move 28s linear infinite;
- font-family:Syne;font-weight:800;font-size:18px;
+.hero-art:before,.hero-art:after{
+ content:"";position:absolute;border:1px solid #54e6df40;border-radius:50%;
+ inset:25px;transform:rotate(60deg) scaleX(.55);
 }
-.marquee span{padding:0 28px}
-@keyframes move{to{transform:translateX(-50%)}}
-
-/* GENERAL SECTIONS */
-section{padding:95px 10%}
-.section-tag{
- color:var(--orange);font-size:11px;
- letter-spacing:3px;font-weight:700;
- margin-bottom:15px;
+.hero-art:after{transform:rotate(-60deg) scaleX(.55);border-color:#ff72bd55}
+.hero-art .core{
+ position:absolute;inset:105px;border-radius:50%;
+ background:radial-gradient(circle,var(--purple),#a78bfa10 70%);
+ box-shadow:0 0 75px #a78bfa55;
+ animation:pulse 4s ease-in-out infinite;
 }
-.section-title{
- font-family:Syne;
- font-size:clamp(36px,5vw,61px);
- line-height:1.08;letter-spacing:-2.5px;
- margin-bottom:42px;
+.hero-art .satellite{
+ position:absolute;top:12px;left:50%;width:14px;height:14px;
+ border-radius:50%;background:var(--lime);
+ box-shadow:0 0 25px var(--lime);
 }
-.section-title span{color:var(--purple)}
-
-/* SERVICES */
-.services-grid{
- display:grid;grid-template-columns:repeat(2,1fr);
- gap:17px;
-}
-.service{
- padding:30px;border-radius:19px;
- min-height:225px;
- display:flex;flex-direction:column;
- justify-content:space-between;
- transition:transform .4s,box-shadow .4s;
- position:relative;overflow:hidden;
-}
-.service:before{
- content:"";position:absolute;
- width:160px;height:160px;border-radius:50%;
- background:#ffffff30;filter:blur(50px);
- right:-60px;top:-60px;transition:.5s;
-}
-.service:hover{
- transform:translateY(-8px);
- box-shadow:0 20px 45px #0005;
-}
-.service:hover:before{transform:scale(2)}
-.service:nth-child(1){background:#a78bfa;color:#17121f}
-.service:nth-child(2){background:#ff805d;color:#20120c}
-.service:nth-child(3){background:#c5f467;color:#171b10}
-.service:nth-child(4){background:#69e5e0;color:#101d1c}
-.service .number{font-size:11px;font-weight:700;opacity:.7}
-.service h3{font-family:Syne;font-size:29px;line-height:1.12}
-.service p{font-size:13px;max-width:320px;line-height:1.7;margin-top:10px;opacity:.8}
-.service .arrow{align-self:end;font-size:25px;transition:.3s}
-.service:hover .arrow{transform:translate(5px,-5px)}
-
-/* ABOUT */
-.about{
- background:#1a1723bb;
- border-top:1px solid #ffffff0d;
- border-bottom:1px solid #ffffff0d;
- display:grid;grid-template-columns:1fr 1fr;
- gap:55px;align-items:center;
-}
-.about-art{
- min-height:340px;border-radius:23px;
- background:linear-gradient(140deg,#a78bfa,#ff805d,#69e5e0);
- display:flex;align-items:center;
- justify-content:center;position:relative;
- overflow:hidden;
-}
-.about-art:after{
- content:"";position:absolute;inset:0;
- background:linear-gradient(120deg,transparent 30%,#ffffff44,transparent 70%);
- transform:translateX(-100%);
- animation:shine 5s infinite;
-}
-@keyframes shine{60%,100%{transform:translateX(100%)}}
-.about-art .big{
- font-family:Syne;font-size:clamp(70px,10vw,120px);
- font-weight:800;color:#17121f;
- transform:rotate(-10deg);
-}
-.about-art .small{
- position:absolute;bottom:23px;right:22px;
- background:var(--lime);color:#111;
- padding:12px 17px;border-radius:30px;
- font-weight:700;font-size:10px;
-}
-.about-text p{
- color:var(--muted);line-height:1.9;
- margin-bottom:17px;font-size:14px;
-}
-.about-text strong{color:white}
-
-/* PROCESS */
-.process-grid{
- display:grid;grid-template-columns:repeat(3,1fr);
- gap:23px;
-}
-.process{border-top:1px solid #ffffff35;padding-top:22px}
-.process .num{color:var(--lime);font-size:11px}
-.process h3{font-family:Syne;font-size:23px;margin:22px 0 10px}
-.process p{color:var(--muted);font-size:13px;line-height:1.8}
-
-/* WORK */
-.showcase{
- background:#d9f78b;color:#151910;
-}
-.showcase .section-tag{color:#5a712e}
-.showcase .section-title span{color:#7353d9}
-.project-grid{
- display:grid;grid-template-columns:1fr 1fr;gap:19px;
-}
-.project{
- min-height:260px;border-radius:19px;
- padding:25px;display:flex;flex-direction:column;
- justify-content:space-between;overflow:hidden;
- transition:transform .4s,box-shadow .4s;
-}
-.project:hover{
- transform:translateY(-7px) scale(1.01);
- box-shadow:0 20px 35px #0002;
-}
-.project:nth-child(1){background:#a78bfa}
-.project:nth-child(2){background:#ff805d}
-.project:nth-child(3){background:#69e5e0}
-.project:nth-child(4){background:#222;color:white}
-.project .project-art{
- font-family:Syne;font-size:clamp(28px,4vw,48px);
- font-weight:800;letter-spacing:-2px;
- transition:transform .4s;
-}
-.project:hover .project-art{transform:scale(1.04)}
-.project small{font-size:10px;font-weight:700;opacity:.7}
-.project h3{font-family:Syne;font-size:21px}
-.project p{font-size:12px;margin-top:6px;opacity:.8}
-.project-note{margin-top:18px;font-size:12px;opacity:.7}
-
-/* CONTACT */
-.contact{text-align:center;padding:115px 8%}
-.contact h2{
- font-family:Syne;
- font-size:clamp(48px,8vw,90px);
- letter-spacing:-4px;line-height:1;
- margin:22px 0;
-}
-.contact h2 span{color:var(--lime)}
-.contact p{color:var(--muted);font-size:14px;margin:22px 0 32px}
-.contact-links{
- display:flex;justify-content:center;
- gap:13px;flex-wrap:wrap;
-}
-.contact-links a{
- padding:14px 23px;
- border:1px solid #ffffff40;
- border-radius:40px;font-size:12px;
- transition:.3s;
-}
-.contact-links a:hover{
- background:var(--lime);color:#111;
- border-color:var(--lime);
- transform:translateY(-4px);
-}
-
-/* FOOTER */
-footer{
- border-top:1px solid #ffffff20;
- padding:27px 9%;
- display:flex;justify-content:space-between;
- gap:20px;color:var(--muted);font-size:11px;
-}
-footer strong{color:var(--lime)}
-
-/* SCROLL REVEAL */
-.reveal{
- opacity:0;transform:translateY(28px);
- transition:opacity .8s ease,transform .8s ease;
-}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.delay1{transition-delay:.12s}
-.delay2{transition-delay:.24s}
-.delay3{transition-delay:.36s}
-
-/* MOBILE */
-@media(max-width:750px){
- nav{padding:16px 6%}
- .navlinks{gap:12px}
- .navlinks a{font-size:10px}
- .navlinks a:not(.nav-btn){display:none}
- .hero{padding:140px 7% 80px;min-height:85vh}
- .hero h1{letter-spacing:-3px}
- .hero-bottom{align-items:flex-start;flex-direction:column}
- .hero-label{right:7%;top:13%;font-size:8px}
- section{padding:75px 7%}
- .services-grid,.about,.project-grid{grid-template-columns:1fr}
- .process-grid{grid-template-columns:1fr;gap:32px}
- .about-art{min-height:270px}
- .about-art .big{font-size:85px}
- .contact h2{letter-spacing:-2px}
- footer{flex-direction:column;padding:25px 7%}
- .grid-bg{background-size:35px 35px}
-}
-@media(prefers-reduced-motion:reduce){
- *,*:before,*:after{
-  animation-duration:.01ms!important;
-  animation-iteration-count:1!important;
-  scroll-behavior:auto!important;
-  transition-duration:.01ms!important;
-  
-/* EXTRA FLOATING DECORATIONS */
-.floating-decor{
- position:absolute;
- inset:0;
- height:100%;
- pointer-events:none;
- overflow:hidden;
- z-index:0;
-}
-
-.orbit{
- position:absolute;
- width:180px;
- height:180px;
- border:1px solid #a78bfa55;
- border-radius:50%;
- animation:orbitSpin 14s linear infinite;
-}
-.orbit-one{
- right:10%;
- top:20%;
-}
-.orbit-two{
- left:-100px;
- top:65%;
- width:240px;
- height:240px;
- border-color:#69e5e044;
- animation-duration:20s;
- animation-direction:reverse;
-}
-.orbit span{
- position:absolute;
- width:12px;
- height:12px;
- border-radius:50%;
- background:var(--lime);
- box-shadow:0 0 20px var(--lime);
- top:15px;
- left:50%;
-}
-@keyframes orbitSpin{
- to{transform:rotate(360deg)}
-}
+@keyframes rotate{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{transform:scale(1.25);opacity:.6}}
 
 .floating-star{
- position:absolute;
- font-size:35px;
- animation:starFloat 5s ease-in-out infinite;
+ position:absolute;font-size:32px;animation:float 5s ease-in-out infinite;
+ pointer-events:none;
 }
-.star-one{top:38%;right:8%;color:var(--orange)}
-.star-two{top:68%;right:23%;color:var(--cyan);animation-delay:1s}
-.star-three{top:17%;left:15%;color:var(--lime);animation-delay:2s}
-@keyframes starFloat{
- 0%,100%{transform:translateY(0) rotate(0deg)}
+.star-one{right:9%;top:18%;color:var(--orange)}
+.star-two{right:27%;bottom:13%;color:var(--cyan);animation-delay:1s}
+.star-three{left:5%;bottom:20%;color:var(--pink);animation-delay:2s}
+@keyframes float{
+ 0%,100%{transform:translateY(0) rotate(0)}
  50%{transform:translateY(-25px) rotate(90deg)}
 }
-
 .float-pill{
- position:absolute;
- border:1px solid #ffffff35;
- background:#ffffff0d;
- backdrop-filter:blur(12px);
- border-radius:30px;
- padding:12px 19px;
- font-size:10px;
- letter-spacing:2px;
- font-weight:700;
- animation:pillFloat 6s ease-in-out infinite;
+ position:absolute;border:1px solid #ffffff30;
+ background:#ffffff0c;backdrop-filter:blur(12px);
+ border-radius:30px;padding:12px 18px;font-size:10px;
+ letter-spacing:2px;font-weight:700;animation:float 6s ease-in-out infinite;
 }
-.pill-one{top:53%;right:5%;color:var(--lime)}
-.pill-two{top:78%;left:8%;color:var(--cyan);animation-delay:2s}
-@keyframes pillFloat{
- 50%{transform:translateY(-18px) rotate(3deg)}
+.pill-one{right:7%;bottom:22%;color:var(--lime)}
+.pill-two{left:7%;top:18%;color:var(--cyan);animation-delay:2s}
+
+.marquee{
+ overflow:hidden;border-top:1px solid #ffffff15;
+ border-bottom:1px solid #ffffff15;padding:22px 0;
+ background:#ffffff05;
+}
+.marquee-track{
+ display:flex;white-space:nowrap;width:max-content;
+ animation:marquee 25s linear infinite;
+}
+.marquee span{
+ font-family:'Space Grotesk';font-weight:700;font-size:20px;
+ letter-spacing:3px;padding:0 30px;color:#aaa0bf;
+}
+.marquee b{color:var(--purple)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+section{padding:110px 10%;position:relative}
+.section-label{
+ color:var(--cyan);font-size:11px;letter-spacing:4px;
+ text-transform:uppercase;margin-bottom:18px;
+}
+.section-heading{
+ font-family:'Space Grotesk';font-size:clamp(38px,6vw,68px);
+ letter-spacing:-3px;line-height:1.05;margin-bottom:20px;
+}
+.section-heading span{color:var(--purple)}
+.section-intro{color:var(--muted);max-width:550px;line-height:1.8;font-size:14px}
+
+.services-grid{
+ display:grid;grid-template-columns:repeat(2,1fr);
+ gap:18px;margin-top:55px;
+}
+.service{
+ position:relative;overflow:hidden;padding:35px;
+ border:1px solid #ffffff16;border-radius:20px;
+ background:linear-gradient(135deg,#ffffff09,#ffffff02);
+ min-height:240px;transition:.4s;
+}
+.service:hover{
+ transform:translateY(-8px);border-color:#a78bfa80;
+ background:linear-gradient(135deg,#a78bfa15,#ffffff03);
+}
+.service-number{font-size:11px;color:#777087;letter-spacing:2px}
+.service-icon{font-size:32px;margin:20px 0}
+.service h3{font-family:'Space Grotesk';font-size:25px;margin-bottom:12px}
+.service p{color:var(--muted);font-size:13px;line-height:1.8;max-width:390px}
+.service:after{
+ content:"";position:absolute;width:140px;height:140px;border-radius:50%;
+ right:-60px;bottom:-75px;background:var(--purple);filter:blur(75px);
+ opacity:.18;transition:.4s;
+}
+.service:hover:after{opacity:.5}
+
+.about-layout{
+ display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center;
+}
+.about-card{
+ border:1px solid #ffffff20;border-radius:24px;padding:35px;
+ background:linear-gradient(145deg,#1b1430,#100d19);
+ position:relative;overflow:hidden;
+}
+.about-card:before{
+ content:"H";position:absolute;font-family:'Space Grotesk';
+ font-size:250px;font-weight:700;color:#a78bfa0c;
+ right:-15px;bottom:-100px;
+}
+.about-card .mini-label{color:var(--lime);font-size:10px;letter-spacing:3px}
+.about-card h3{font-family:'Space Grotesk';font-size:35px;margin:25px 0}
+.about-card p{color:var(--muted);line-height:1.9;font-size:14px}
+.about-text p{color:var(--muted);line-height:1.9;font-size:14px;margin:20px 0}
+.about-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.about-tags span{
+ border:1px solid #ffffff25;padding:9px 13px;border-radius:30px;
+ font-size:11px;color:#d5cce7;
 }
 
-.float-circle{
- position:absolute;
- top:48%;
- left:45%;
- width:45px;
- height:45px;
- border:2px solid var(--orange);
- border-radius:50%;
- animation:circlePulse 4s infinite;
+.process-grid{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:18px;margin-top:50px;
 }
-@keyframes circlePulse{
- 50%{transform:scale(1.5);opacity:.3}
+.process{
+ border-top:1px solid #ffffff30;padding:25px 15px 10px 0;
 }
+.process strong{font-family:'Space Grotesk';font-size:38px;color:var(--purple)}
+.process h3{font-size:18px;margin:15px 0 10px}
+.process p{font-size:13px;line-height:1.8;color:var(--muted)}
 
-.float-diamond{
- position:absolute;
- top:85%;
- right:15%;
- width:25px;
- height:25px;
- background:var(--purple);
- transform:rotate(45deg);
- opacity:.65;
- animation:diamondMove 7s ease-in-out infinite;
+.work-grid{
+ display:grid;grid-template-columns:repeat(2,1fr);
+ gap:18px;margin-top:45px;
 }
-@keyframes diamondMove{
- 50%{transform:translateY(-35px) rotate(180deg)}
-}
-
-/* MOUSE FOLLOW GLOW */
-.mouse-glow{
- position:fixed;
- width:260px;
- height:260px;
- border-radius:50%;
- background:radial-gradient(circle,#a78bfa1c,transparent 70%);
- pointer-events:none;
- transform:translate(-50%,-50%);
- z-index:0;
-}
-
-/* CARD GLOW */
-.service,.project{
- position:relative;
- isolation:isolate;
-}
-.service:after,.project:after{
- content:"";
- position:absolute;
- inset:0;
- border-radius:inherit;
- border:1px solid #ffffff55;
- opacity:0;
+.work{
+ min-height:230px;border-radius:20px;padding:30px;
+ position:relative;overflow:hidden;border:1px solid #ffffff18;
+ display:flex;flex-direction:column;justify-content:space-between;
  transition:.4s;
- pointer-events:none;
 }
-.service:hover:after,.project:hover:after{
- opacity:1;
- box-shadow:0 0 25px #ffffff22;
+.work:hover{transform:scale(1.02)}
+.work:nth-child(1){background:linear-gradient(135deg,#33205d,#17102c)}
+.work:nth-child(2){background:linear-gradient(135deg,#16464d,#101b2c)}
+.work:nth-child(3){background:linear-gradient(135deg,#532343,#211126)}
+.work:nth-child(4){background:linear-gradient(135deg,#44451d,#171a17)}
+.work .work-number{font-size:11px;letter-spacing:3px;color:#ffffff90}
+.work h3{font-family:'Space Grotesk';font-size:28px}
+.work p{font-size:12px;color:#ffffffa0;margin-top:8px}
+.work .work-shape{
+ position:absolute;width:160px;height:160px;border-radius:50%;
+ right:-40px;top:-40px;border:1px solid #ffffff30;
+ box-shadow:0 0 60px #ffffff15;
+}
+.work small{color:#ffffff80;font-size:10px;letter-spacing:2px;margin-top:20px}
+
+.contact{
+ text-align:center;padding:120px 10%;
+ border-top:1px solid #ffffff15;
+}
+.contact .section-heading{font-size:clamp(45px,8vw,95px)}
+.contact p{color:var(--muted);font-size:14px;line-height:1.8;max-width:500px;margin:20px auto 35px}
+.contact-links{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}
+.contact-links a{
+ padding:14px 22px;border:1px solid #ffffff30;border-radius:30px;
+ font-size:12px;transition:.3s;
+}
+.contact-links a:hover{background:var(--purple);color:#100b1c;border-color:var(--purple)}
+footer{
+ padding:25px 10%;border-top:1px solid #ffffff15;
+ display:flex;justify-content:space-between;gap:15px;
+ color:#777087;font-size:11px;
 }
 
-/* MOBILE DECORATION */
-@media(max-width:750px){
- .orbit-one{right:-80px;top:25%}
- .orbit-two{left:-150px}
- .star-one{right:3%;font-size:23px}
- .star-two{right:8%}
- .pill-one{right:3%;font-size:8px}
- .pill-two{left:3%;font-size:8px}
- .float-circle{left:75%;width:25px;height:25px}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.cursor-dot{
+ position:fixed;width:7px;height:7px;background:var(--cyan);
+ border-radius:50%;pointer-events:none;z-index:10;
+ box-shadow:0 0 15px var(--cyan);
 }
-
- }
+@media(max-width:850px){
+ .hero-art{right:-100px;opacity:.5}
+ .hero{padding-left:7%;padding-right:7%}
+ section{padding:85px 7%}
+}
+@media(max-width:650px){
+ nav{padding:0 6%;height:70px}
+ .nav-links{display:none}
+ .hero{min-height:680px;padding-top:100px}
+ .hero h1{letter-spacing:-5px}
+ .hero-art{width:220px;height:220px;top:10%;right:-90px;opacity:.35}
+ .hero-art .core{inset:75px}
+ .star-one{right:5%;top:10%}
+ .star-two{right:8%;bottom:8%}
+ .pill-one{right:3%;bottom:16%;font-size:8px}
+ .pill-two{left:4%;top:13%;font-size:8px}
+ .services-grid,.about-layout,.work-grid{grid-template-columns:1fr}
+ .process-grid{grid-template-columns:1fr;gap:30px}
+ .service{min-height:210px}
+ .about-layout{gap:30px}
+ footer{flex-direction:column;text-align:center}
+ .mouse-glow{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
 
-/* MOUSE FOLLOWING GLOW */
-const glow=document.createElement('div');
-glow.className='mouse-glow';
-document.body.appendChild(glow);
+<body>
+<canvas id="particles"></canvas>
+<div class="background-grid"></div>
+<div class="ambient one"></div>
+<div class="ambient two"></div>
+<div class="ambient three"></div>
+<div class="mouse-glow" id="mouseGlow"></div>
 
+<nav>
+ <a class="logo" href="#">HURAIRA<span>.</span></a>
+ <div class="nav-links">
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#work">Work</a>
+ </div>
+ <a class="nav-cta" href="#contact">LET'S TALK ↗</a>
+</nav>
+
+<main>
+<section class="hero">
+ <div class="hero-content">
+  <div class="eyebrow">CREATIVE DIGITAL FREELANCER · LAHORE</div>
+  <h1>IDEAS<br><span class="gradient">INTO</span><br><span class="outline">IMPACT.</span></h1>
+  <p class="hero-description">
+   I help brands and businesses build a stronger digital presence
+   through creative design, modern websites and engaging content.
+  </p>
+  <div class="hero-buttons">
+   <a href="#work" class="btn btn-primary">Explore my work ↗</a>
+   <a href="#contact" class="btn btn-outline">Let's collaborate</a>
+  </div>
+  <div class="hero-note"><span>●</span> AVAILABLE FOR FREELANCE PROJECTS</div>
+ </div>
+
+ <div class="hero-art"><div class="core"></div><div class="satellite"></div></div>
+ <div class="floating-star star-one">✳</div>
+ <div class="floating-star star-two">✦</div>
+ <div class="floating-star star-three">✧</div>
+ <div class="float-pill pill-one">CREATIVE ✳</div>
+ <div class="float-pill pill-two">DIGITAL ✦</div>
+</section>
+
+<div class="marquee">
+ <div class="marquee-track">
+  <span>WEB DEVELOPMENT <b>✳</b></span><span>VIDEO EDITING <b>✳</b></span>
+  <span>GRAPHIC DESIGN <b>✳</b></span><span>VIRTUAL ASSISTANCE <b>✳</b></span>
+  <span>WEB DEVELOPMENT <b>✳</b></span><span>VIDEO EDITING <b>✳</b></span>
+  <span>GRAPHIC DESIGN <b>✳</b></span><span>VIRTUAL ASSISTANCE <b>✳</b></span>
+ </div>
+</div>
+
+<section id="services">
+ <div class="reveal">
+  <div class="section-label">01 / WHAT I DO</div>
+  <h2 class="section-heading">Skills that make<br><span>things happen.</span></h2>
+  <p class="section-intro">Creative and practical digital services designed to help your ideas stand out online.</p>
+ </div>
+ <div class="services-grid">
+  <article class="service reveal">
+   <div class="service-number">01 / DEVELOPMENT</div>
+   <div class="service-icon">⌘</div>
+   <h3>Web Development</h3>
+   <p>Modern, responsive and visually engaging websites built to give your brand a professional online presence.</p>
+  </article>
+  <article class="service reveal">
+   <div class="service-number">02 / CONTENT</div>
+   <div class="service-icon">◉</div>
+   <h3>Video Editing</h3>
+   <p>Engaging short-form videos, social media edits and content designed to capture attention.</p>
+  </article>
+  <article class="service reveal">
+   <div class="service-number">03 / VISUALS</div>
+   <div class="service-icon">✳</div>
+   <h3>Graphic Design</h3>
+   <p>Creative visuals, social media graphics and clean designs that communicate your brand identity.</p>
+  </article>
+  <article class="service reveal">
+   <div class="service-number">04 / SUPPORT</div>
+   <div class="service-icon">↗</div>
+   <h3>Virtual Assistance</h3>
+   <p>Reliable digital support, online research, organisation and everyday administrative assistance.</p>
+  </article>
+ </div>
+</section>
+
+<section id="about">
+ <div class="about-layout">
+  <div class="about-card reveal">
+   <div class="mini-label">A LITTLE ABOUT ME</div>
+   <h3>Curiosity.<br>Creativity.<br>Consistency.</h3>
+   <p>Building digital skills, exploring new ideas and turning creativity into practical digital experiences.</p>
+  </div>
+  <div class="about-text reveal">
+   <div class="section-label">02 / THE PERSON BEHIND THE WORK</div>
+   <h2 class="section-heading">Hey, I'm <span>Huraira.</span></h2>
+   <p>I'm a creative digital freelancer based in Lahore, Pakistan. I enjoy combining technology and creativity to make useful, modern digital experiences.</p>
+   <p>My focus is on learning, improving and delivering work that is thoughtful, clear and useful for clients.</p>
+   <div class="about-tags">
+    <span>Creative Thinking</span><span>Problem Solving</span>
+    <span>Digital Skills</span><span>Always Learning</span>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="process">
+ <div class="reveal">
+  <div class="section-label">03 / HOW I WORK</div>
+  <h2 class="section-heading">Simple process.<br><span>Better results.</span></h2>
+ </div>
+ <div class="process-grid">
+  <div class="process reveal">
+   <strong>01</strong><h3>Understand</h3>
+   <p>First, I understand your goals, requirements and the result you're looking for.</p>
+  </div>
+  <div class="process reveal">
+   <strong>02</strong><h3>Create</h3>
+   <p>I plan and build a solution around your project, with attention to detail.</p>
+  </div>
+  <div class="process reveal">
+   <strong>03</strong><h3>Deliver</h3>
+   <p>I review the work, make agreed improvements and deliver the final result.</p>
+  </div>
+ </div>
+</section>
+
+<section id="work">
+ <div class="reveal">
+  <div class="section-label">04 / SELECTED CATEGORIES</div>
+  <h2 class="section-heading">A glimpse of<br><span>what I create.</span></h2>
+  <p class="section-intro">These are examples of the types of projects I work towards. Replace them with real projects as you build your portfolio.</p>
+ </div>
+ <div class="work-grid">
+  <article class="work reveal">
+   <div class="work-shape"></div>
+   <div class="work-number">PROJECT CATEGORY / 01</div>
+   <div><h3>Digital Websites</h3><p>Modern web experiences and landing pages.</p><small>WEB DEVELOPMENT</small></div>
+  </article>
+  <article class="work reveal">
+   <div class="work-shape"></div>
+   <div class="work-number">PROJECT CATEGORY / 02</div>
+   <div><h3>Social Content</h3><p>Short-form videos and engaging edits.</p><small>VIDEO EDITING</small></div>
+  </article>
+  <article class="work reveal">
+   <div class="work-shape"></div>
+   <div class="work-number">PROJECT CATEGORY / 03</div>
+   <div><h3>Visual Identity</h3><p>Graphics and creative visual communication.</p><small>GRAPHIC DESIGN</small></div>
+  </article>
+  <article class="work reveal">
+   <div class="work-shape"></div>
+   <div class="work-number">PROJECT CATEGORY / 04</div>
+   <div><h3>Digital Support</h3><p>Organised online and administrative assistance.</p><small>VIRTUAL ASSISTANCE</small></div>
+  </article>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="reveal">
+  <div class="section-label">05 / HAVE A PROJECT IN MIND?</div>
+  <h2 class="section-heading">LET'S MAKE<br><span>IT HAPPEN.</span></h2>
+  <p>Have an idea, a project or an opportunity? Get in touch. Let's discuss how I can help.</p>
+  <div class="contact-links">
+   <a href="mailto:hurairadigitalcreator@gmail.com">Email Me ↗</a>
+   <a href="https://wa.me/03174044889" target="_blank" rel="noopener">WhatsApp ↗</a>
+   <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <span>© 2026 HURAIRA. ALL RIGHTS RESERVED.</span>
+ <span>DESIGNED WITH CREATIVITY & PURPOSE.</span>
+</footer>
+
+<script>
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let particles=[];
+function resize(){
+ canvas.width=window.innerWidth;
+ canvas.height=window.innerHeight;
+}
+resize();
+window.addEventListener('resize',resize);
+
+for(let i=0;i<65;i++){
+ particles.push({
+  x:Math.random()*window.innerWidth,
+  y:Math.random()*window.innerHeight,
+  size:Math.random()*2+0.5,
+  speed:Math.random()*.35+.1,
+  alpha:Math.random()*.5+.15
+ });
+}
+function animateParticles(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ particles.forEach(p=>{
+  p.y-=p.speed;
+  if(p.y<0){p.y=canvas.height;p.x=Math.random()*canvas.width}
+  ctx.beginPath();
+  ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+  ctx.fillStyle=`rgba(190,160,255,${p.alpha})`;
+  ctx.fill();
+ });
+ requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+const glow=document.getElementById('mouseGlow');
 window.addEventListener('mousemove',e=>{
  glow.style.left=e.clientX+'px';
  glow.style.top=e.clientY+'px';
 });
 
-<body>
-
-<div class="floating-decor">
-  <div class="orbit orbit-one">
-    <span></span>
-  </div>
-  <div class="orbit orbit-two">
-    <span></span>
-  </div>
-  <div class="floating-star star-one">✳</div>
-  <div class="floating-star star-two">✦</div>
-  <div class="floating-star star-three">✧</div>
-  <div class="float-pill pill-one">CREATIVE ✳</div>
-  <div class="float-pill pill-two">DIGITAL ✦</div>
-  <div class="float-circle"></div>
-  <div class="float-diamond"></div>
-</div>
-
-<div class="background">
- <div class="grid-bg"></div>
- <div class="orb one"></div>
- <div class="orb two"></div>
- <div class="orb three"></div>
-</div>
-<canvas id="particles"></canvas>
-
-<nav>
- <a href="#" class="logo">HURAIRA<span>.</span></a>
- <div class="navlinks">
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#work">Work</a>
-  <a href="#contact" class="nav-btn">Let's Talk ↗</a>
- </div>
-</nav>
-
-<header class="hero">
- <div class="hero-label">AVAILABLE FOR PROJECTS ✳</div>
- <div class="eyebrow">CREATIVE DIGITAL FREELANCER / LAHORE, PK</div>
- <h1>
-  IDEAS<br>
-  <span class="outline">INTO</span><br>
-  <span class="colour">IMPACT.</span>
- </h1>
- <div class="hero-bottom">
-  <div class="hero-desc">
-   I turn creative ideas into <strong>digital experiences</strong>.
-   From websites to visuals and video, I help brands build
-   a stronger online presence.
-  </div>
-  <a href="#work" class="hero-cta">Explore My World ↗</a>
- </div>
-</header>
-
-<div class="marquee">
- <div class="marquee-inner">
-  <span>DESIGN WITH PURPOSE ✳</span>
-  <span>BUILD WITH CREATIVITY ✳</span>
-  <span>THINK DIFFERENT ✳</span>
-  <span>CREATE IMPACT ✳</span>
-  <span>DESIGN WITH PURPOSE ✳</span>
-  <span>BUILD WITH CREATIVITY ✳</span>
-  <span>THINK DIFFERENT ✳</span>
-  <span>CREATE IMPACT ✳</span>
- </div>
-</div>
-
-<section id="services">
- <div class="section-tag reveal">01 / WHAT I DO</div>
- <h2 class="section-title reveal">CREATIVE SKILLS.<br><span>DIGITAL SOLUTIONS.</span></h2>
- <div class="services-grid">
-  <div class="service reveal">
-   <span class="number">01 / DEVELOPMENT</span>
-   <div><h3>Web<br>Development.</h3><p>Modern, responsive websites that make your business stand out online.</p></div>
-   <span class="arrow">↗</span>
-  </div>
-  <div class="service reveal delay1">
-   <span class="number">02 / VIDEO</span>
-   <div><h3>Video<br>Editing.</h3><p>Engaging short-form videos, reels and content designed to capture attention.</p></div>
-   <span class="arrow">↗</span>
-  </div>
-  <div class="service reveal delay2">
-   <span class="number">03 / VISUAL DESIGN</span>
-   <div><h3>Graphic<br>Design.</h3><p>Eye-catching graphics, social media designs and visual identities.</p></div>
-   <span class="arrow">↗</span>
-  </div>
-  <div class="service reveal delay3">
-   <span class="number">04 / SUPPORT</span>
-   <div><h3>Virtual<br>Assistance.</h3><p>Reliable digital support, research, organisation and everyday online tasks.</p></div>
-   <span class="arrow">↗</span>
-  </div>
- </div>
-</section>
-
-<section class="about" id="about">
- <div class="about-art reveal">
-  <div class="big">MAKE<br>IT<br>MATTER.</div>
-  <div class="small">CREATIVITY × EXECUTION</div>
- </div>
- <div class="about-text reveal">
-  <div class="section-tag">02 / THE PERSON BEHIND THE WORK</div>
-  <h2 class="section-title">HEY, I'M<br><span>HURAIRA.</span></h2>
-  <p>I'm a creative digital freelancer from Lahore, Pakistan, interested in building things that look great and work even better.</p>
-  <p>My focus is combining <strong>design, technology and creativity</strong> to deliver useful digital solutions.</p>
-  <p>Every project is an opportunity to learn, improve and create something meaningful.</p>
- </div>
-</section>
-
-<section>
- <div class="section-tag reveal">03 / HOW I WORK</div>
- <h2 class="section-title reveal">SIMPLE PROCESS.<br><span>BETTER RESULTS.</span></h2>
- <div class="process-grid">
-  <div class="process reveal">
-   <span class="num">01 — DISCOVER</span>
-   <h3>Understand.</h3>
-   <p>First, I understand your goals, requirements and the vision behind your project.</p>
-  </div>
-  <div class="process reveal delay1">
-   <span class="num">02 — CREATE</span>
-   <h3>Build.</h3>
-   <p>I turn your requirements into a creative solution with attention to detail.</p>
-  </div>
-  <div class="process reveal delay2">
-   <span class="num">03 — DELIVER</span>
-   <h3>Launch.</h3>
-   <p>I review the work, make improvements and deliver the final project.</p>
-  </div>
- </div>
-</section>
-
-<section class="showcase" id="work">
- <div class="section-tag">04 / SELECTED WORK</div>
- <h2 class="section-title">THINGS I'M<br><span>BUILDING.</span></h2>
- <div class="project-grid">
-  <div class="project">
-   <small>01 / WEB DESIGN</small>
-   <div class="project-art">DIGITAL<br>EXPERIENCE.</div>
-   <div><h3>Web Development</h3><p>Modern website concepts and digital experiences.</p></div>
-  </div>
-  <div class="project">
-   <small>02 / VIDEO</small>
-   <div class="project-art">FRAME.<br>FOCUS.<br>IMPACT.</div>
-   <div><h3>Video Editing</h3><p>Short-form content and creative storytelling.</p></div>
-  </div>
-  <div class="project">
-   <small>03 / GRAPHIC DESIGN</small>
-   <div class="project-art">VISUAL<br>IDENTITY.</div>
-   <div><h3>Graphic Design</h3><p>Creative graphics and branding concepts.</p></div>
-  </div>
-  <div class="project">
-   <small>04 / DIGITAL SUPPORT</small>
-   <div class="project-art">WORK<br>SMARTER.</div>
-   <div><h3>Virtual Assistance</h3><p>Organisation, research and digital support.</p></div>
-  </div>
- </div>
- <p class="project-note">These are service showcases, not completed client projects. Replace them with real work samples as you build your portfolio.</p>
-</section>
-
-<section class="contact" id="contact">
- <div class="section-tag">05 / HAVE A PROJECT?</div>
- <h2>LET'S MAKE<br><span>IT HAPPEN.</span></h2>
- <p>Have an idea? Need a creative solution? Let's talk.</p>
- <div class="contact-links">
-  <a href="mailto:hurairadigitalcreator@gmail.com">Email Me ↗</a>
-  <a href="https://wa.me/03174044889" target="_blank">WhatsApp ↗</a>
-  <a href="https://www.linkedin.com/" target="_blank">LinkedIn ↗</a>
- </div>
-</section>
-
-<footer>
- <div>© 2026 <strong>HURAIRA.</strong> All rights reserved.</div>
- <div>DESIGNED WITH CREATIVITY. BUILT WITH PURPOSE.</div>
-</footer>
-
-<script>
-// Scroll reveal
 const observer=new IntersectionObserver(entries=>{
  entries.forEach(entry=>{
   if(entry.isIntersecting){
@@ -739,45 +542,8 @@ const observer=new IntersectionObserver(entries=>{
    observer.unobserve(entry.target);
   }
  });
-},{threshold:0.12});
-
-document.querySelectorAll('.reveal').forEach(el=>{
- observer.observe(el);
-});
-
-// Animated background particles
-const canvas=document.getElementById('particles');
-const ctx=canvas.getContext('2d');
-let w,h,particles=[];
-
-function resize(){
- w=canvas.width=window.innerWidth;
- h=canvas.height=window.innerHeight;
- particles=Array.from({length:45},()=>({
-  x:Math.random()*w,
-  y:Math.random()*h,
-  r:Math.random()*2+0.5,
-  speed:Math.random()*0.35+0.12,
-  alpha:Math.random()*0.45+0.12
- }));
-}
-resize();
-window.addEventListener('resize',resize);
-
-function animate(){
- ctx.clearRect(0,0,w,h);
- particles.forEach(p=>{
-  p.y-=p.speed;
-  if(p.y<0){p.y=h;p.x=Math.random()*w}
-  ctx.beginPath();
-  ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-  ctx.fillStyle=`rgba(197,244,103,${p.alpha})`;
-  ctx.fill();
- });
- requestAnimationFrame(animate);
-}
-animate();
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
-
 </body>
 </html>
