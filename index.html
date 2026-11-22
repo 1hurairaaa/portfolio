@@ -392,12 +392,187 @@ footer strong{color:var(--lime)}
   animation-iteration-count:1!important;
   scroll-behavior:auto!important;
   transition-duration:.01ms!important;
+  
+/* EXTRA FLOATING DECORATIONS */
+.floating-decor{
+ position:absolute;
+ inset:0;
+ height:100%;
+ pointer-events:none;
+ overflow:hidden;
+ z-index:0;
+}
+
+.orbit{
+ position:absolute;
+ width:180px;
+ height:180px;
+ border:1px solid #a78bfa55;
+ border-radius:50%;
+ animation:orbitSpin 14s linear infinite;
+}
+.orbit-one{
+ right:10%;
+ top:20%;
+}
+.orbit-two{
+ left:-100px;
+ top:65%;
+ width:240px;
+ height:240px;
+ border-color:#69e5e044;
+ animation-duration:20s;
+ animation-direction:reverse;
+}
+.orbit span{
+ position:absolute;
+ width:12px;
+ height:12px;
+ border-radius:50%;
+ background:var(--lime);
+ box-shadow:0 0 20px var(--lime);
+ top:15px;
+ left:50%;
+}
+@keyframes orbitSpin{
+ to{transform:rotate(360deg)}
+}
+
+.floating-star{
+ position:absolute;
+ font-size:35px;
+ animation:starFloat 5s ease-in-out infinite;
+}
+.star-one{top:38%;right:8%;color:var(--orange)}
+.star-two{top:68%;right:23%;color:var(--cyan);animation-delay:1s}
+.star-three{top:17%;left:15%;color:var(--lime);animation-delay:2s}
+@keyframes starFloat{
+ 0%,100%{transform:translateY(0) rotate(0deg)}
+ 50%{transform:translateY(-25px) rotate(90deg)}
+}
+
+.float-pill{
+ position:absolute;
+ border:1px solid #ffffff35;
+ background:#ffffff0d;
+ backdrop-filter:blur(12px);
+ border-radius:30px;
+ padding:12px 19px;
+ font-size:10px;
+ letter-spacing:2px;
+ font-weight:700;
+ animation:pillFloat 6s ease-in-out infinite;
+}
+.pill-one{top:53%;right:5%;color:var(--lime)}
+.pill-two{top:78%;left:8%;color:var(--cyan);animation-delay:2s}
+@keyframes pillFloat{
+ 50%{transform:translateY(-18px) rotate(3deg)}
+}
+
+.float-circle{
+ position:absolute;
+ top:48%;
+ left:45%;
+ width:45px;
+ height:45px;
+ border:2px solid var(--orange);
+ border-radius:50%;
+ animation:circlePulse 4s infinite;
+}
+@keyframes circlePulse{
+ 50%{transform:scale(1.5);opacity:.3}
+}
+
+.float-diamond{
+ position:absolute;
+ top:85%;
+ right:15%;
+ width:25px;
+ height:25px;
+ background:var(--purple);
+ transform:rotate(45deg);
+ opacity:.65;
+ animation:diamondMove 7s ease-in-out infinite;
+}
+@keyframes diamondMove{
+ 50%{transform:translateY(-35px) rotate(180deg)}
+}
+
+/* MOUSE FOLLOW GLOW */
+.mouse-glow{
+ position:fixed;
+ width:260px;
+ height:260px;
+ border-radius:50%;
+ background:radial-gradient(circle,#a78bfa1c,transparent 70%);
+ pointer-events:none;
+ transform:translate(-50%,-50%);
+ z-index:0;
+}
+
+/* CARD GLOW */
+.service,.project{
+ position:relative;
+ isolation:isolate;
+}
+.service:after,.project:after{
+ content:"";
+ position:absolute;
+ inset:0;
+ border-radius:inherit;
+ border:1px solid #ffffff55;
+ opacity:0;
+ transition:.4s;
+ pointer-events:none;
+}
+.service:hover:after,.project:hover:after{
+ opacity:1;
+ box-shadow:0 0 25px #ffffff22;
+}
+
+/* MOBILE DECORATION */
+@media(max-width:750px){
+ .orbit-one{right:-80px;top:25%}
+ .orbit-two{left:-150px}
+ .star-one{right:3%;font-size:23px}
+ .star-two{right:8%}
+ .pill-one{right:3%;font-size:8px}
+ .pill-two{left:3%;font-size:8px}
+ .float-circle{left:75%;width:25px;height:25px}
+}
+
  }
 }
 </style>
 </head>
 
+/* MOUSE FOLLOWING GLOW */
+const glow=document.createElement('div');
+glow.className='mouse-glow';
+document.body.appendChild(glow);
+
+window.addEventListener('mousemove',e=>{
+ glow.style.left=e.clientX+'px';
+ glow.style.top=e.clientY+'px';
+});
+
 <body>
+
+<div class="floating-decor">
+  <div class="orbit orbit-one">
+    <span></span>
+  </div>
+  <div class="orbit orbit-two">
+    <span></span>
+  </div>
+  <div class="floating-star star-one">✳</div>
+  <div class="floating-star star-two">✦</div>
+  <div class="floating-star star-three">✧</div>
+  <div class="float-pill pill-one">CREATIVE ✳</div>
+  <div class="float-pill pill-two">DIGITAL ✦</div>
+  <div class="float-circle"></div>
+  <div class="float-diamond"></div>
+</div>
 
 <div class="background">
  <div class="grid-bg"></div>
